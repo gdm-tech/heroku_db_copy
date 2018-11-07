@@ -8,4 +8,4 @@ RUN chmod +x /bin/copy.sh
 
 RUN echo '0  *  *  *  *    /bin/copy.sh' > /etc/crontabs/root
 
-CMD ['crond', '-l 2', '-f']
+CMD ["crond", "-l", "2", "-f"]
