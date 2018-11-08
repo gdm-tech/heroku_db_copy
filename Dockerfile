@@ -6,6 +6,6 @@ RUN curl https://cli-assets.heroku.com/install.sh | sh
 COPY copy.sh /bin/copy.sh
 RUN chmod +x /bin/copy.sh
 
-RUN echo '0  *  *  *  *    /bin/copy.sh' > /etc/crontabs/root
+RUN echo '*/10  *  *  *  *    /bin/copy.sh' > /etc/crontabs/root
 
 CMD ["crond", "-l", "2", "-f"]
