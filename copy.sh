@@ -9,12 +9,12 @@ if [ -e $LOCK_FILE ]; then
   exit 0
 fi
 
-touch $LOCK_FILE
-
 if [ -e $DUMP_FILE ]; then
   echo "Backup '$BACKUP_NAME' was already restored. Skipping..."
   exit 0
 fi
+
+touch $LOCK_FILE
 
 echo "Downloading backup $BACKUP_NAME from Heroku app '$HEROKU_APP'"
 heroku pg:backups:url $BACKUP_NAME -a $HEROKU_APP | xargs wget --quiet -O $DUMP_FILE
